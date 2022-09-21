@@ -53,14 +53,8 @@ const Card: React.FC<Configuration> = (config) => {
             background: backgroundPattern
           }}>
           <div className="card-logo-wrapper">
-            {config.logo !== '' ? (
-              <img src={config.logo} alt="Custom logo" />
-            ) : (
-              <i className={getDevIconClassName('GitHub', config.theme)} />
-            )}
             {languageIcon && (
               <>
-                <span className="card-logo-divider">+</span>
                 <i className={languageIcon} />
               </>
             )}
@@ -72,7 +66,7 @@ const Card: React.FC<Configuration> = (config) => {
                 ? `${config.owner.value}${config.name?.state ? '/' : ''}`
                 : ''}
             </span>
-            <span className="card-name-name">
+            <span className="card-name-name capitalize">
               {config.name?.state ? `${config.name.value}` : ''}
             </span>
           </p>
@@ -218,6 +212,10 @@ const Card: React.FC<Configuration> = (config) => {
 
             .card-badges-wrapper > :global(*) {
               margin: 0 5px;
+            }
+
+            .capitalize {
+              text-transform: capitalize;
             }
           `}</style>
         </div>
